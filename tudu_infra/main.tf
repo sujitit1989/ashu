@@ -3,6 +3,11 @@ module "resource_group" {
   resource_group_name = "rg_toduapp"
   resource_group_location = "centralindia"
 }
+module "resource_group" {
+  source = "../modules/azure_resource_group"
+  resource_group_name = "rg_toduapp1"
+  resource_group_location = "centralindia"
+}
 module "virtual_network" {
     depends_on = [ module.resource_group ]
     source = "../modules/azure_virtual_network"
