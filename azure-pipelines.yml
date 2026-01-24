@@ -16,7 +16,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/tudu_infra'
     backendServiceArm: 'sonu_connection'
     backendAzureRmResourceGroupName: 'sonu_rg'
     backendAzureRmStorageAccountName: 'sonustg123'
