@@ -22,3 +22,9 @@ steps:
     backendAzureRmStorageAccountName: 'sonustg123'
     backendAzureRmContainerName: 'sonucontainer'
     backendAzureRmKey: 'terraform.tfstate'
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/tudu_infra'
+    environmentServiceNameAzureRM: 'sonu_connection'
