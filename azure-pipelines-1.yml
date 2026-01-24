@@ -1,0 +1,24 @@
+trigger:
+- main
+
+pool:
+  name: sonu-YAML
+
+steps:
+- checkout: self
+
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
+
+- task: TerraformTaskV4@4
+  displayName: 'Terraform Init'
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/tudu_infra'
+    backendServiceArm: 'sonu_connection'
+    backendAzureRmResourceGroupName: 'sonu_rg'
+    backendAzureRmStorageAccountName: 'sonustg123'
+    backendAzureRmContainerName: 'sonucontainer'
+    backendAzureRmKey: 'terraform.tfstate'
